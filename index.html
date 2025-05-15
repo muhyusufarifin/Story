@@ -1,1 +1,24 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Story</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><script defer="defer" src="bundle.js"></script></head><body><a href="#main-content" class="skip-link">Skip to content</a><header class="header"><h1 class="header__title">Story</h1><nav class="nav"><ul class="nav__list"><li class="nav__item"><a href="#/home" class="nav__link">Home</a></li><li class="nav__item"><a href="#/add-story" class="nav__link">Add Story</a></li><li class="nav__item"><a href="#/login" class="nav__link" id="login-link">Login</a></li><li class="nav__item"><a href="#/register" class="nav__link" id="register-link">Register</a></li></ul></nav></header><main id="main-content"></main><footer class="footer"><p>&copy; 2025 Story. All rights reserved.</p></footer><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#4CAF50"><meta name="description" content="Share your Dicoding stories"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Dicoding Story</title><link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png"><link rel="icon" href="/icon-192x192.png"><script defer="defer" src="/main.dec284236c3f6ffa6929.js"></script><meta name="theme-color" content="#4CAF50" /><link rel="manifest" href="/manifest.json" crossorigin="use-credentials" /></head><body><div class="app-shell"><a href="#main-content" class="skip-link">Skip to content</a><header class="app-header header"><h1 class="header__title">Story</h1><nav class="nav"><ul class="nav__list"><li class="nav__item"><a href="#/home" class="nav__link">Home</a></li><li class="nav__item"><a href="#/add-story" class="nav__link">Add Story</a></li><li class="nav__item" id="auth-links"><a href="#/login" class="nav__link" id="login-link">Login</a> <a href="#/register" class="nav__link" id="register-link">Register</a> <a href="#/logout" class="nav__link" id="logout-link" style="display: none;">Logout</a></li></ul></nav><div class="network-status" id="network-status"></div></header><main id="main-content" class="app-main"></main><footer class="app-footer footer"><p>&copy; 2025. All rights reserved.</p></footer></div><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>// Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+
+    // Network status indicator
+    function updateNetworkStatus() {
+      const statusElement = document.getElementById('network-status');
+      if (navigator.onLine) {
+        statusElement.classList.add('online');
+        statusElement.classList.remove('offline');
+        statusElement.title = 'Online';
+      } else {
+        statusElement.classList.add('offline');
+        statusElement.classList.remove('online');
+        statusElement.title = 'Offline';
+      }
+    }
+
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+    updateNetworkStatus();</script></body></html>
